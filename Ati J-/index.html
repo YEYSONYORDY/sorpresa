@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para mi Corazón 💛</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Fondo de partículas -->
+  <canvas id="canvas-bg"></canvas>
+
+  <!-- Flores cayendo -->
+  <div class="falling-flowers" id="fallingFlowers"></div>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- PANTALLA 1: Intro -->
+  <section class="screen active" id="screen1">
+    <div class="screen-content">
+      <div class="gold-line top"></div>
+      <span class="date-label">21 de marzo · Día de las Flores Amarillas</span>
+      <h1 class="main-title">Para <em>Tí😊</em></h1>
+      <p class="tagline">Un mensaje especial espera por ti...</p>
+      <div class="gold-line bottom"></div>
+      <button class="btn-primary" onclick="goToScreen(2)">
+        <span class="btn-text">Abrir con amor</span>
+        <span class="btn-icon">💛</span>
+        <div class="btn-ripple"></div>
+      </button>
+    </div>
+    <!-- Girasoles decorativos -->
+    <div class="deco-flower f1">🌻</div>
+    <div class="deco-flower f2">🌼</div>
+    <div class="deco-flower f3">🌸</div>
+  </section>
+
+  <!-- PANTALLA 2: Mensaje romántico -->
+  <section class="screen" id="screen2">
+    <div class="screen-content card-content">
+      <div class="envelope-wrapper" id="envelopeWrapper">
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap" id="envelopeFlap"></div>
+          <div class="envelope-body">
+            <span class="envelope-icon">💌</span>
+            <p class="envelope-hint">Toca para abrir</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="letter hidden" id="letter">
+        <div class="letter-corner tl"></div>
+        <div class="letter-corner tr"></div>
+        <div class="letter-corner bl"></div>
+        <div class="letter-corner br"></div>
+        <p class="letter-date">21 de marzo, con todo mi amor</p>
+        <p class="letter-text" id="letterText"></p>
+        <div class="letter-signature">
+          <span class="signature-label">Con cariño, tu programador favorito</span>
+          <span class="signature-flowers">🌻 💛 🌼</span>
+        </div>
+        <div class="letter-actions">
+          <button class="btn-secondary" onclick="replayLetter()">Leer de nuevo ✨</button>
+          <button class="btn-secondary" onclick="goToScreen(3)">Ver más 💫</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA 3: Galería de razones -->
+  <section class="screen" id="screen3">
+    <div class="screen-content">
+      <h2 class="section-title"><em>Razones</em> para quererte</h2>
+      <p class="section-sub">Haz click en cada flor para descubrir una razón 🌸</p>
+      <div class="reasons-grid" id="reasonsGrid">
+        <!-- Se generan con JS -->
+      </div>
+      <button class="btn-primary mt" onclick="goToScreen(4)">
+        <span class="btn-text">Hay más...</span>
+        <span class="btn-icon">🌟</span>
+        <div class="btn-ripple"></div>
+      </button>
+    </div>
+  </section>
+
+  <!-- PANTALLA 4: Final con fuegos artificiales -->
+  <section class="screen" id="screen4">
+    <canvas id="fireworks-canvas"></canvas>
+    <div class="screen-content final-content">
+      <div class="heart-container" id="heartContainer">
+        <div class="big-heart" id="bigHeart">💛</div>
+        <div class="heart-pulse-ring r1"></div>
+        <div class="heart-pulse-ring r2"></div>
+        <div class="heart-pulse-ring r3"></div>
+      </div>
+      <h2 class="final-title">Eres lo más bonito<br>que me ha pasado</h2>
+      <p class="final-text">Hoy, mañana y siempre — eres mi flor amarilla favorita.</p>
+      <div class="final-buttons">
+        <button class="btn-gold" onclick="launchFireworks()">
+          🎆 Celebrar juntos
+        </button>
+        <button class="btn-outline" onclick="goToScreen(1)">
+          🌻 Desde el inicio
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegación de puntos -->
+  <nav class="dot-nav" id="dotNav">
+    <button class="dot active" onclick="goToScreen(1)" title="Inicio"></button>
+    <button class="dot" onclick="goToScreen(2)" title="Mensaje"></button>
+    <button class="dot" onclick="goToScreen(3)" title="Razones"></button>
+    <button class="dot" onclick="goToScreen(4)" title="Final"></button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
